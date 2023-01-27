@@ -15,10 +15,10 @@ public class Discipline implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "Discipline_id")
+	@Column(name = "id_discipline")
 	private int Id;
-	@Column(name = "label")
-	private String label;
+	@Column(name = "theme")
+	private String theme;
 
 	public int getId() {
 		return Id;
@@ -28,12 +28,12 @@ public class Discipline implements Serializable {
 		this.Id = DisciplineId;
 	}
 
-	public String getLabel() {
-		return label;
+	public String getTheme() {
+		return theme;
 	}
 
-	public void setLabel(String title) {
-		this.label = title;
+	public void setTheme(String title) {
+		this.theme = title;
 	}
 
 }

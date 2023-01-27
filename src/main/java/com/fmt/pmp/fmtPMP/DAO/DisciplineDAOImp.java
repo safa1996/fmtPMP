@@ -32,7 +32,7 @@ public class DisciplineDAOImp implements DisciplineDAO {
 	@Override
 	public void updateDiscipline(Discipline Discipline) {
 		Discipline artcl = getDisciplineById(Discipline.getId());
-		artcl.setLabel(Discipline.getLabel());
+		artcl.setTheme(Discipline.getTheme());
 		entityManager.flush();
 	}
 	@Override

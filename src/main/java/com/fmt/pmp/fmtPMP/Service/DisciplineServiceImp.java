@@ -23,7 +23,7 @@ public class DisciplineServiceImp implements DisciplineService{
 	}
 	@Override
 	public synchronized boolean createDiscipline(Discipline Discipline){
-       if (DisciplineDAO.DisciplineExists(Discipline.getLabel())) {
+       if (DisciplineDAO.DisciplineExists(Discipline.getTheme())) {
     	   return false;
        } else {
     	   DisciplineDAO.createDiscipline(Discipline);
