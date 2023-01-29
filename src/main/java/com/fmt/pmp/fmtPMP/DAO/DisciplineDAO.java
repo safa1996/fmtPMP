@@ -10,11 +10,9 @@ public interface DisciplineDAO {
 
 	Discipline getDisciplineById(int DisciplineId);
 
-	void createDiscipline(Discipline Discipline);
+	Discipline createDiscipline(Discipline Discipline);
 
 	void updateDiscipline(Discipline Discipline);
 
 	void deleteDiscipline(int DisciplineId);
-
-	boolean DisciplineExists(String label);
 }

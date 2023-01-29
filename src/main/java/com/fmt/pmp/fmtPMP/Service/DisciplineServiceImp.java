@@ -4,36 +4,39 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fmt.pmp.fmtPMP.DAO.DisciplineDAO;
 import com.fmt.pmp.fmtPMP.Model.Discipline;
+
 @Service
-public class DisciplineServiceImp implements DisciplineService{
+public class DisciplineServiceImp implements DisciplineService {
 
 	@Autowired
 	private DisciplineDAO DisciplineDAO;
+
 	@Override
 	public Discipline getDisciplineById(int DisciplineId) {
 		Discipline obj = DisciplineDAO.getDisciplineById(DisciplineId);
 		return obj;
-	}	
+	}
+
 	@Override
-	public List<Discipline> getAllDisciplines(){
+	public List<Discipline> getAllDisciplines() {
 		return DisciplineDAO.getAllDisciplines();
 	}
+
 	@Override
-	public synchronized boolean createDiscipline(Discipline Discipline){
-       if (DisciplineDAO.DisciplineExists(Discipline.getTheme())) {
-    	   return false;
-       } else {
-    	   DisciplineDAO.createDiscipline(Discipline);
-    	   return true;
-       }
+	@Transactional
+	public Discipline createDiscipline(Discipline theTransaction) {
+		return DisciplineDAO.createDiscipline(theTransaction);
 	}
+
 	@Override
 	public void updateDiscipline(Discipline Discipline) {
 		DisciplineDAO.updateDiscipline(Discipline);
 	}
+
 	@Override
 	public void deleteDiscipline(int DisciplineId) {
 		DisciplineDAO.deleteDiscipline(DisciplineId);

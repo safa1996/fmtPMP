@@ -9,11 +9,10 @@ public interface PmpDAO {
 
 	Pmp getPmpById(int PmpId);
 
-	void createPmp(Pmp Pmp);
+	Pmp createPmp(Pmp Pmp);
 
 	void updatePmp(Pmp Pmp);
 
 	void deletePmp(int PmpId);
 
-	boolean PmpExists(String label);
 }
