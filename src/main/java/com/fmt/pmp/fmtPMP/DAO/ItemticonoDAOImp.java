@@ -1,6 +1,7 @@
 package com.fmt.pmp.fmtPMP.DAO;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.fmt.pmp.fmtPMP.Model.Itemticono;
+import com.fmt.pmp.fmtPMP.Model.Pmp;
+import com.fmt.pmp.fmtPMP.utils.PmpHelper;
 
 @Transactional
 @Repository
@@ -45,6 +48,16 @@ public class ItemticonoDAOImp implements ItemticonoDAO {
 	@Override
 	public void deleteItemticono(int ItemticonoId) {
 		entityManager.remove(getItemticonoById(ItemticonoId));
+	}
+
+	@Override
+	public List<Itemticono> getItemIconoByPmp(int id) {
+		Pmp pmp = PmpHelper.getPmpById(id, entityManager);
+		if (null != pmp) {
+			List<Itemticono> itemIcono = getAllItemticonos();
+			return itemIcono.stream().filter(i -> i.getPmp().equals(pmp)).collect(Collectors.toList());
+		}
+		return null;
 	}
 
 }

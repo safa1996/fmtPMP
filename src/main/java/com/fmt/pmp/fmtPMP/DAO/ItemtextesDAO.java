@@ -14,4 +14,6 @@ public interface ItemtextesDAO {
 	void updateItemtextes(Itemtextes Itemtextes);
 
 	void deleteItemtextes(int ItemtextesId);
+	
+	List<Itemtextes> getItemtextesByPmp(int pmp);
 }

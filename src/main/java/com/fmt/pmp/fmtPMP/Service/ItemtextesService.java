@@ -12,5 +12,9 @@ public interface ItemtextesService {
 	Itemtextes createItemtextes(Itemtextes Itemtextes);
 
 	void updateItemtextes(Itemtextes Itemtextes);
+	
     void deleteItemtextes(int ItemtextesId);
+    
+    List<Itemtextes> getItemtextesByPmp(int pmp);
+    
 }

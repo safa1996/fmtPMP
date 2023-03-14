@@ -40,4 +40,9 @@ public class ItemtextesServiceImp implements ItemtextesService {
 	public void deleteItemtextes(int ItemtextesId) {
 		ItemtextesDAO.deleteItemtextes(ItemtextesId);
 	}
+
+	@Override
+	public List<Itemtextes> getItemtextesByPmp(int pmp) {
+		return ItemtextesDAO.getItemtextesByPmp(pmp);
+	}
 }

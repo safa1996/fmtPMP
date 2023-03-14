@@ -36,6 +36,12 @@ public class ItemtextesController {
 		List<Itemtextes> list = ItemtextesService.getAllItemtextess();
 		return new ResponseEntity<List<Itemtextes>>(list, HttpStatus.OK);
 	}
+	
+	@GetMapping("Itemtextes-By-pmp")
+	public ResponseEntity<List<Itemtextes>> getItemtextesByPmp(@RequestParam("id") int id) {
+		List<Itemtextes> list = ItemtextesService.getItemtextesByPmp(id);
+		return new ResponseEntity<List<Itemtextes>>(list, HttpStatus.OK);
+	}
 
 	@RequestMapping(value = "/Itemtexte", method = RequestMethod.POST)
 	public Itemtextes createItemtextes(@RequestBody Itemtextes discipline) {

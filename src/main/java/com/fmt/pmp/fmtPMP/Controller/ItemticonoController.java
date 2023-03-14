@@ -37,6 +37,12 @@ public class ItemticonoController {
 		return new ResponseEntity<List<Itemticono>>(list, HttpStatus.OK);
 	}
 
+	@GetMapping("Itemticonos-By-pmp")
+	public ResponseEntity<List<Itemticono>> getItemtextesByPmp(@RequestParam("id") int id) {
+		List<Itemticono> list = ItemticonoService.getItemIconoByPmp(id);
+		return new ResponseEntity<List<Itemticono>>(list, HttpStatus.OK);
+	}
+
 	@RequestMapping(value = "/Itemticono", method = RequestMethod.POST)
 	public Itemticono createItemticono(@RequestBody Itemticono discipline) {
 

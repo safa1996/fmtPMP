@@ -14,4 +14,6 @@ public interface ItemticonoDAO {
 	void updateItemticono(Itemticono Itemticono);
 
 	void deleteItemticono(int ItemticonoId);
+	
+	List<Itemticono> getItemIconoByPmp(int pmp);
 }
