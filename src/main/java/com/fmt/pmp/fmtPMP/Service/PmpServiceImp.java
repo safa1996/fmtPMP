@@ -1,6 +1,7 @@
 package com.fmt.pmp.fmtPMP.Service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -39,5 +40,10 @@ public class PmpServiceImp implements PmpService {
 	@Override
 	public void deletePmp(int PmpId) {
 		PmpDAO.deletePmp(PmpId);
+	}
+
+	@Override
+	public Map<String, Object> getItemsByPmp(int id) {
+		return PmpDAO.getItemsByPmp(id);
 	}
 }

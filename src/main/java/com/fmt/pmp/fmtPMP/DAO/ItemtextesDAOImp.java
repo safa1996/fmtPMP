@@ -1,7 +1,6 @@
 package com.fmt.pmp.fmtPMP.DAO;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -55,7 +54,7 @@ public class ItemtextesDAOImp implements ItemtextesDAO {
 		Pmp pmp = PmpHelper.getPmpById(id, entityManager);
 		if (null != pmp) {
 			List<Itemtextes> itemtextes = getAllItemtextess();
-			return itemtextes.stream().filter(i -> i.getPmp().equals(pmp)).collect(Collectors.toList());
+			return PmpHelper.itemtextesByPmp(itemtextes, pmp);
 
 		}
 		return null;

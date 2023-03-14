@@ -1,6 +1,7 @@
 package com.fmt.pmp.fmtPMP.Service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.fmt.pmp.fmtPMP.Model.Pmp;
 
@@ -10,4 +11,5 @@ public interface PmpService {
 	    Pmp createPmp(Pmp Pmp);
 	    void updatePmp(Pmp Pmp);
 	    void deletePmp(int PmpId);
+	    Map<String, Object> getItemsByPmp(int id);
 }

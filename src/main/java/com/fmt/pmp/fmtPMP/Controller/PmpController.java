@@ -1,6 +1,7 @@
 package com.fmt.pmp.fmtPMP.Controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,12 @@ public class PmpController {
 	public ResponseEntity<List<Pmp>> getAllPmps() {
 		List<Pmp> list = PmpService.getAllPmps();
 		return new ResponseEntity<List<Pmp>>(list, HttpStatus.OK);
+	}
+	
+	@GetMapping("itemsIconoTextByPmp")
+	public ResponseEntity<Map<String, Object>> getitemsIconoTextByPmp(int id) {
+		Map<String, Object> itemsByPmp = PmpService.getItemsByPmp(id);
+		return new ResponseEntity<Map<String, Object>>(itemsByPmp, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/Pmp", method = RequestMethod.POST)
