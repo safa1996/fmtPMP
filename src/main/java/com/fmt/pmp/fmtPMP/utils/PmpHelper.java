@@ -44,4 +44,5 @@ public class PmpHelper {
 		query.setParameter("argPmp", pmp);
 		return (List<Itemtextes>) query.getResultList();
 	}
+
 }
