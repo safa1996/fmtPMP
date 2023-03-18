@@ -1,5 +1,6 @@
 package com.fmt.pmp.fmtPMP.Service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,5 +12,5 @@ public interface PmpService {
 	    Pmp createPmp(Pmp Pmp);
 	    void updatePmp(Pmp Pmp);
 	    void deletePmp(int PmpId);
-	    Map<String, Object> getItemsByPmp(int id);
+	    LinkedHashMap<Integer, Map<String, Object>> getItemsByPmp(int id);
 }

@@ -1,5 +1,6 @@
 package com.fmt.pmp.fmtPMP.Controller;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,9 +40,9 @@ public class PmpController {
 	}
 	
 	@GetMapping("itemsIconoTextByPmp")
-	public ResponseEntity<Map<String, Object>> getitemsIconoTextByPmp(int id) {
-		Map<String, Object> itemsByPmp = PmpService.getItemsByPmp(id);
-		return new ResponseEntity<Map<String, Object>>(itemsByPmp, HttpStatus.OK);
+	public ResponseEntity<Map<Integer, Map<String, Object>>> getitemsIconoTextByPmp(int id) {
+		LinkedHashMap<Integer, Map<String, Object>> itemsByPmp = PmpService.getItemsByPmp(id);
+		return new ResponseEntity<Map<Integer, Map<String, Object>>>(itemsByPmp, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/Pmp", method = RequestMethod.POST)

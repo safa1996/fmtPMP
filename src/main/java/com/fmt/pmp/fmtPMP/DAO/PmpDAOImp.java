@@ -1,6 +1,7 @@
 package com.fmt.pmp.fmtPMP.DAO;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,8 +57,8 @@ public class PmpDAOImp implements PmpDAO {
 	}
 
 	@Override
-	public Map<String, Object> getItemsByPmp(int id) {
-		LinkedHashMap<String, Object> itemsBypmpMap = new LinkedHashMap<String, Object>();
+	public LinkedHashMap<Integer, Map<String, Object>> getItemsByPmp(int id) {
+		LinkedHashMap<Integer, Map<String, Object>> itemsBypmpMap = new LinkedHashMap<>();
 		List<Object> items = new ArrayList<>();
 		Pmp pmp = getPmpById(id);
 		List<Itemticono> itemsIcono = PmpHelper.getItemIcono(pmp, entityManager);
@@ -84,11 +85,15 @@ public class PmpDAOImp implements PmpDAO {
 		}
 		int i = 0;
 		for (Object item : items) {
-			if (item instanceof Itemticono) {
-				itemsBypmpMap.put("iconoElement" + i, item);
+			LinkedHashMap<String, Object> hashMap = new LinkedHashMap<String, Object>();
+			if (item instanceof Itemtextes) {
+				hashMap.put("key", "TextElement");
+				hashMap.put("value", item);
 			} else {
-				itemsBypmpMap.put("TextElement" + i, item);
+				hashMap.put("key", "iconoElement");
+				hashMap.put("value", item);
 			}
+			itemsBypmpMap.put(i, hashMap);
 			i++;
 		}
 		return itemsBypmpMap;

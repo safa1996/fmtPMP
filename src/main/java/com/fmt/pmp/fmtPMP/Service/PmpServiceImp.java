@@ -1,5 +1,6 @@
 package com.fmt.pmp.fmtPMP.Service;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -43,7 +44,7 @@ public class PmpServiceImp implements PmpService {
 	}
 
 	@Override
-	public Map<String, Object> getItemsByPmp(int id) {
+	public LinkedHashMap<Integer, Map<String, Object>> getItemsByPmp(int id) {
 		return PmpDAO.getItemsByPmp(id);
 	}
 }
